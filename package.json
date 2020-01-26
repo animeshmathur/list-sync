@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "start": "npm run build && npm run server",
     "server": "node ./server/server",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
