@@ -3,8 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "npm run build && npm run local-server",
-    "local-server": "nodemon ./server/local-server",
+    "start": "npm run build && npm run server",
+    "dev-server": "nodemon ./server/local-server",
+    "server": "node ./server/local-server",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
