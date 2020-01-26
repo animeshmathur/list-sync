@@ -8,7 +8,7 @@
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
-  "post-install": "npm run server",
+  "post-install": "npm run build && npm run server",
   "dependencies": {
     "core-js": "^3.4.4",
     "cors": "^2.8.5",
