@@ -2,15 +2,13 @@
   "name": "list-sync",
   "version": "0.1.0",
   "private": true,
-  "main": "server/local-server.js",
   "scripts": {
-    "start": "npm run build && npm run server",
-    "dev-server": "nodemon ./server/local-server",
     "server": "node ./server/server",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
+  "post-install": "npm run server",
   "dependencies": {
     "core-js": "^3.4.4",
     "cors": "^2.8.5",
@@ -21,12 +19,11 @@
     "@vue/cli-plugin-eslint": "^4.1.0",
     "@vue/cli-service": "^4.1.0",
     "babel-eslint": "^10.0.3",
+    "body-parser": "^1.19.0",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
-    "vue-template-compiler": "^2.6.10",
     "express": "^4.17.1",
-    "serverless-http": "^2.3.1",
-    "body-parser": "^1.19.0"
+    "vue-template-compiler": "^2.6.10"
   },
   "eslintConfig": {
     "root": true,
