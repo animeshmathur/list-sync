@@ -1,5 +1,6 @@
 const path = require("path");
 const express = require("express");
+const serverless = require("serverless-http");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 
@@ -10,15 +11,15 @@ app.use(bodyParser.json());
 
 app.use(cors());
 
-app.use("/", express.static(path.join(__dirname, "../dist")));
+const router = express.Router();
 
 let listItems = [];
 
-app.get("/list/getAll", (req, res) => {
+router.get("/list/getAll", (req, res) => {
   res.json(listItems);
 });
 
-app.post("/list/add", (req, res) => {
+router.post("/list/add", (req, res) => {
   const { item } = req.body;
   listItems.push({
     id: new Date().getTime(),
@@ -27,13 +28,14 @@ app.post("/list/add", (req, res) => {
   res.json(listItems);
 });
 
-app.post("/list/remove", (req, res) => {
+router.post("/list/remove", (req, res) => {
   const { itemId } = req.body;
   listItems = listItems.filter(listItem => listItem.id !== itemId);
   res.json(listItems);
 });
 
-app.listen(process.env.PORT || 3000, () => {
-  // eslint-disable-next-line no-console
-  console.log("Started server at port - 3000....");
-});
+app.use("/.netlify/functions/server", router); // path must route to lambda
+app.use("/", express.static(path.join(__dirname, "../dist")));
+
+module.exports = app;
+module.exports.handler = serverless(app);
