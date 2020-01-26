@@ -2,6 +2,7 @@
   "name": "list-sync",
   "version": "0.1.0",
   "private": true,
+  "main": "server/local-server.js",
   "scripts": {
     "start": "npm run build && npm run server",
     "dev-server": "nodemon ./server/local-server",
