@@ -3,13 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "npm run build && npm run server",
-    "server": "node ./server/server",
+    "start": "npm run server",
+    "server": "node ./server/server.js",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
-  "post-install": "npm run build && npm run server",
+  "postinstall": "npm run build",
   "dependencies": {
     "core-js": "^3.4.4",
     "cors": "^2.8.5",
