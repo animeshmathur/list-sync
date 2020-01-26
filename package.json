@@ -5,7 +5,7 @@
   "scripts": {
     "start": "npm run build && npm run server",
     "dev-server": "nodemon ./server/local-server",
-    "server": "node ./server/local-server",
+    "server": "node ./server/server",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
