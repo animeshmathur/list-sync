@@ -1,11 +1,11 @@
 <template>
   <div>
     <ul class="list">
-      <li :key="item.id" v-for="item in items">
+      <li :key="item._id" v-for="item in items">
         <span class="list-item-content">
           {{ item.val }}
         </span>
-        <button class="delete-btn" @click="deleteItemAtIndex(item.id)">
+        <button class="delete-btn" @click="deleteItemAtIndex(item._id)">
           X
         </button>
       </li>
