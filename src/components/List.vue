@@ -6,7 +6,7 @@
           {{ item.val }}
         </span>
         <button class="delete-btn" @click="deleteItemAtIndex(item._id)">
-          X
+          ✘
         </button>
       </li>
       <li class="new-item-input">
@@ -14,6 +14,7 @@
           type="text"
           v-model="newItemVal"
           v-on:keyup.enter="insertItem()"
+          placeholder="write it here and relax... 😉"
         />
       </li>
     </ul>
@@ -47,36 +48,36 @@ ul.list {
   margin: 0;
 }
 ul.list li {
-  padding: 10px;
-  background-color: #ece7e7;
-  margin: 5px 0;
-  border: 1px solid #aca6a6;
+  background-color: #fff;
+  margin: 11px 0;
+  border: 1px solid #fff;
   display: flex;
+  color: #275;
+  border-radius: 10px;
 }
 ul.list li.new-item-input {
   background: #ffffff;
 }
 .list-item-content {
-  font-size: 20px;
+  padding: 5px 15px;
+  font-size: 16px;
   flex: 1;
 }
 .delete-btn {
-  background-color: #ffffff;
-  border: 1px solid tomato;
+  background-color: transparent;
+  border: 0;
   color: tomato;
   cursor: pointer;
   font-size: 12px;
   padding: 5px 10px;
-}
-.delete-btn:hover {
-  background-color: tomato;
-  border: 1px solid #ece7e7;
-  color: #ffffff;
+  outline: none;
 }
 input[type="text"] {
   border: 0;
-  font-size: 20px;
+  font-size: 16px;
+  padding: 5px 15px;
   width: 100%;
   outline: none;
+  background-color: transparent;
 }
 </style>

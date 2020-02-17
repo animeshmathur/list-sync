@@ -17,6 +17,8 @@ body {
   font-family: "Calibri";
   font-size: 14px;
   padding: 10px;
+  background-color: #275;
+  color: #fff;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
