@@ -21,6 +21,11 @@ export default {
       this.items = await response.json();
     },
     addToList: async function(itemVal) {
+      this.items.push({
+        _id: new Date().toString(),
+        val: itemVal,
+        isUnsaved: true
+      });
       const response = await fetch("/list/add", {
         method: "POST",
         cache: "no-cache",
@@ -34,7 +39,11 @@ export default {
       });
       this.items = await response.json();
     },
-    removeFromList: async function(itemId) {
+    removeFromList: async function(itemId, itemIndex) {
+      this.items.splice(itemIndex, 1, {
+        ...this.items[itemIndex],
+        isUnsaved: true
+      });
       const response = await fetch("/list/remove", {
         method: "POST",
         cache: "no-cache",

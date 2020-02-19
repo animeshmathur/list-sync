@@ -1,11 +1,17 @@
 <template>
   <div>
     <ul class="list">
-      <li :key="item._id" v-for="item in items">
-        <span class="list-item-content">
-          {{ item.val }}
-        </span>
-        <button class="delete-btn" @click="deleteItemAtIndex(item._id)">
+      <li
+        :key="item._id"
+        v-for="(item, index) in items"
+        :class="!!item.isUnsaved ? 'unsaved' : ''"
+      >
+        <span class="list-item-content"> {{ item.val }}</span>
+        <button
+          class="delete-btn"
+          v-if="!item.isUnsaved"
+          @click="deleteItemAtIndex(item._id, index)"
+        >
           ✘
         </button>
       </li>
@@ -33,8 +39,8 @@ export default {
       this.$emit("list:add", this.newItemVal);
       this.newItemVal = "";
     },
-    deleteItemAtIndex: function(itemId) {
-      this.$emit("list:remove", itemId);
+    deleteItemAtIndex: function(itemId, itemIndex) {
+      this.$emit("list:remove", itemId, itemIndex);
     }
   }
 };
@@ -54,6 +60,9 @@ ul.list li {
   display: flex;
   color: #275;
   border-radius: 10px;
+}
+ul.list li.unsaved {
+  opacity: 0.6;
 }
 ul.list li.new-item-input {
   background: #ffffff;
